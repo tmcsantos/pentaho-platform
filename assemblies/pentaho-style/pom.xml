@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>pentaho</groupId>
+    <artifactId>pentaho-platform-assemblies</artifactId>
+    <version>7.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>pentaho-style</artifactId>
+  <packaging>pom</packaging>
+
+  <properties>
+    <prepared.war.directory>${pentaho-server.directory}/tomcat/webapps/pentaho-style</prepared.war.directory>
+    <package.resources.directory>${basedir}/src/main/resources/biserver/tomcat/webapps/pentaho-style</package.resources.directory>
+
+    <maven-war-plugin.version>2.6</maven-war-plugin.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <executions>
+
+          <!-- copy resources configurations into pentaho-server directory -->
+          <execution>
+            <id>assemble-pentaho-webapp</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${prepared.war.directory}</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${package.resources.directory}</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven-war-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>pentaho-style-war</id>
+            <phase>package</phase>
+            <goals>
+              <goal>war</goal>
+            </goals>
+            <configuration>
+              <archive>
+                <addMavenDescriptor>false</addMavenDescriptor>
+              </archive>
+              <warName>pentaho-style</warName>
+              <webXml>${prepared.war.directory}/WEB-INF/web.xml</webXml>
+              <webappDirectory>${prepared.war.directory}</webappDirectory>
+              <outputDirectory>${project.build.directory}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
