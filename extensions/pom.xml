@@ -415,17 +415,6 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>${xercesImpl.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>xml-apis</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 			<version>${dom4j.version}</version>
@@ -2312,11 +2301,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>${hsqldb.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>pentaho</groupId>
 			<artifactId>simple-jndi</artifactId>
 			<version>${simple-jndi.version}</version>
@@ -2379,17 +2363,6 @@
 			<artifactId>spring-security-core-tests</artifactId>
 			<version>${spring-security-core-tests.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>*</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.ldap</groupId>
-			<artifactId>spring-ldap-core</artifactId>
-			<version>${spring-ldap-core.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>*</groupId>
@@ -2774,17 +2747,6 @@
 			<artifactId>grizzly-http-servlet</artifactId>
 			<version>${grizzly.version}</version>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>*</groupId>
-					<artifactId>*</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-multipart</artifactId>
-			<version>${jersey.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>*</groupId>

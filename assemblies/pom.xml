@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>pentaho</groupId>
+    <artifactId>pentaho-platform-ce-parent</artifactId>
+    <version>7.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>pentaho-platform-assemblies</artifactId>
+  <packaging>pom</packaging>
+  <name>Platform assemblies</name>
+
+  <properties>
+    <package.id>pentaho-server</package.id>
+    <pentaho-server.directory>${project.build.directory}/${package.id}</pentaho-server.directory>
+
+    <pentaho-server.solutions.directory>${pentaho-server.directory}/pentaho-solutions</pentaho-server.solutions.directory>
+
+    <pentaho-server.system.directory>${pentaho-server.solutions.directory}/system</pentaho-server.system.directory>
+    <pentaho-server.plugins.directory>${pentaho-server.system.directory}</pentaho-server.plugins.directory>
+    <pentaho-server.kettle.plugins.directory>${pentaho-server.system.directory}/kettle/pluggins</pentaho-server.kettle.plugins.directory>
+
+    <plugins.directory>plugins</plugins.directory>
+  </properties>
+
+  <modules>
+    <module>pentaho-samples</module>
+    <module>pentaho-plugin-samples</module>
+    <module>pentaho-user-console</module>
+    <module>pentaho-war</module>
+    <module>pentaho-style</module>
+  </modules>
+
+</project>

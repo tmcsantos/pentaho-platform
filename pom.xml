@@ -11,7 +11,7 @@
   <artifactId>pentaho-platform-ce-parent</artifactId>
   <version>7.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>${project.artifactId}</name>
+  <name>Pentaho BI Platform Community Edition</name>
   <description>Parent pom for pentaho-platform projects</description>
   <url>http://www.pentaho.com</url>
   
@@ -295,56 +295,56 @@
   </properties>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>${license-maven-plugin.version}</version>
+          <executions>
+            <execution>
+              <id>validate-src-license-header</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>validate-text-src-license-header</id>
+              <phase>test-compile</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <failIfMissing>${license.fail.if.missing}</failIfMissing>
+            <header>${license.header.file}</header>
+            <headerDefinitions>
+              <headerDefinition>${license.header.definition.file}</headerDefinition>
+            </headerDefinitions>
+            <properties>
+              <project.inceptionYear>${license.inception.year}</project.inceptionYear>
+              <project.currentYear>${license.current.year}</project.currentYear>
+            </properties>
+            <useDefaultExcludes>true</useDefaultExcludes>
+            <includes>
+              <include>src/main/java/**</include>
+              <include>src/test/java/**</include>
+              <include>src/it/java/**</include>
+              <include>src/main/javascript/**</include>
+              <include>src/test/javascript/**</include>
+            </includes>
+            <excludes>
+              <exclude>**/README</exclude>
+              <exclude>src/test/resources/**</exclude>
+              <exclude>src/main/resources/**</exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 
-    <plugins>
-
-      <plugin>
-        <groupId>com.mycila</groupId>
-        <artifactId>license-maven-plugin</artifactId>
-        <version>${license-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>validate-src-license-header</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>validate-text-src-license-header</id>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <failIfMissing>${license.fail.if.missing}</failIfMissing>
-          <header>${license.header.file}</header>
-          <headerDefinitions>
-            <headerDefinition>${license.header.definition.file}</headerDefinition>
-          </headerDefinitions>
-          <properties>
-            <project.inceptionYear>${license.inception.year}</project.inceptionYear>
-            <project.currentYear>${license.current.year}</project.currentYear>
-          </properties>
-          <useDefaultExcludes>true</useDefaultExcludes>
-          <includes>
-            <include>src/main/java/**</include>
-            <include>src/test/java/**</include>
-            <include>src/it/java/**</include>
-            <include>src/main/javascript/**</include>
-            <include>src/test/javascript/**</include>
-          </includes>
-          <excludes>
-            <exclude>**/README</exclude>
-            <exclude>src/test/resources/**</exclude>
-            <exclude>src/main/resources/**</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-
-    </plugins>
 
   </build>  
 
@@ -378,7 +378,8 @@
       </activation>
       <id>platform-assemble</id>
       <modules>
-        <module>assembly</module>
+        <!--<module>assembly</module>-->
+        <module>assemblies</module>
       </modules>
     </profile>
   </profiles>

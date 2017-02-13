@@ -23,7 +23,7 @@
     <assembly.descriptors.dir>src/main/descriptors</assembly.descriptors.dir>
     <solutions.archive.name>pentaho-solutions</solutions.archive.name>
     <data.archive.name>pentaho-data</data.archive.name>
-    <manual.deployment.assembly.name>${project.artifactId}-${version}</manual.deployment.assembly.name>
+    <manual.deployment.assembly.name>${project.artifactId}-${project.version}</manual.deployment.assembly.name>
   </properties>
   <build>
 
