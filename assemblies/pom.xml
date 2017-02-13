@@ -32,6 +32,7 @@
     <module>pentaho-user-console</module>
     <module>pentaho-war</module>
     <module>pentaho-style</module>
+    <module>pentaho-data</module>
   </modules>
 
 </project>
